@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskly/pages/addtask_page.dart';
 import 'package:taskly/pages/home_page.dart';
 import 'package:taskly/pages/regist_page.dart';
 import 'pages/login_page.dart';
@@ -20,6 +21,7 @@ class MainApp extends StatelessWidget {
         '/regist': (context) => RegistPage(),
         '/login': (context) => LoginPage(),
         '/home' : (context) => const HomePage(),
+        '/add' : (context) => AddTaskPage(),
       },
     );
   }

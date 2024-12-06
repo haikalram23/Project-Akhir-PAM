@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taskly/components/todo_card.dart';
+import 'package:taskly/pages/addtask_page.dart';
 import 'package:taskly/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -148,8 +149,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navigasi ke halaman Add Task
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTaskPage()),
+          );
+        },
         backgroundColor: const Color(0xFF4169E1),
         child: SvgPicture.asset('images/plus.svg'),
       ),
