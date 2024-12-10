@@ -17,7 +17,6 @@ class RegistPage extends StatelessWidget {
     final password = passwordController.text.trim();
     final confirmPassword = confirmPasswordController.text.trim();
 
-    // Validate inputs
     if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please fill in all fields")),
@@ -32,12 +31,10 @@ class RegistPage extends StatelessWidget {
       return;
     }
 
-    // Call FirebaseAuthService
     FirebaseAuthService authService = FirebaseAuthService();
     final user = await authService.signUpWithEmailAndPassword(email, password);
 
     if (user != null) {
-      // Navigate to home page upon successful registration
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
@@ -57,7 +54,6 @@ class RegistPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Register
           const Text(
             "Daftar",
             style: TextStyle(
@@ -69,7 +65,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 5),
 
-          // Divider
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: Divider(
@@ -80,7 +75,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 100),
 
-          // Email TextField
           MyTextField(
             controller: emailController,
             hintText: "Email",
@@ -89,7 +83,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Password TextField
           MyTextField(
             controller: passwordController,
             hintText: "Password",
@@ -98,7 +91,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Confirm Password TextField
           MyTextField(
             controller: confirmPasswordController,
             hintText: "Confirm password",
@@ -107,7 +99,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // Register Button
           MyButton(
             text: "Daftar",
             onTap: () => registerUser(context),
@@ -115,7 +106,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 30),
 
-          // Already have an account?
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -150,7 +140,6 @@ class RegistPage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Go to Home (temporary)
           GestureDetector(
             onTap: () {
               Navigator.pushReplacement(
