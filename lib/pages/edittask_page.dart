@@ -84,7 +84,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
         'notes': notesController.text,
       });
 
-      Navigator.pop(context); // Return to the previous screen
+      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to update task: $e')),
@@ -110,7 +110,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
 
       await taskRef.remove();
 
-      Navigator.pop(context); // Return to the previous screen
+      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to delete task: $e')),
@@ -183,7 +183,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
                       ),
                       border: InputBorder.none,
                     ),
-                    maxLines: null, // Allows multiline input
+                    maxLines: null, 
                     keyboardType: TextInputType.multiline,
                   ),
                 ],
@@ -196,9 +196,9 @@ class _EditTaskPageState extends State<EditTaskPage> {
       ),
       bottomNavigationBar: Container(
         height: 8,
-        color: Colors.blueGrey[50], // Matches light background tone
+        color: Colors.blueGrey[50],
       ),
-      backgroundColor: const Color(0xFFF7F8FC), // Light grey background
+      backgroundColor: const Color(0xFFF7F8FC),
     );
   }
 }
